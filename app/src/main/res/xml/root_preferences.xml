@@ -1,0 +1,25 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory
+        app:icon="@drawable/team_icon_1"
+        app:title="Teams" />
+
+        <ListPreference
+            app:defaultValue="No Team Selected"
+            app:key="team_select"
+            app:title="Team"
+            app:useSimpleSummaryProvider="true" />
+
+        <Preference
+            app:fragment="com.mobiledev.volleydaddy.NewTeamFragment"
+            app:title="Create New Team" />
+
+    <PreferenceCategory
+        app:icon="@drawable/ic_dark_mode"
+        app:title="Visual">
+
+        <SwitchPreference
+            app:key="mode"
+            app:title="Dark Mode" />
+    </PreferenceCategory>
+</PreferenceScreen>

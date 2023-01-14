@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Volley Daddy</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="placeholder">Random Temporary Text</string>
+    <string name="rotations_tab_name">Rotations</string>
+    <string name="team_tab_name">Team</string>
+    <string name="settings_tab_name">Settings</string>
+    <string name="builder_tab_name">Builder</string>
+    <string name="tutorial_rotation_name">What are rotations?</string>
+    <string name="five_one_rotation_name">5–1 Rotation!</string>
+    <string name="six_two_rotation_name">6–2 Rotation!</string>
+    <string name="testing_tester">Testing tester</string>
+    <string name="testertesting_tutorial">testertesting tutorial</string>
+    <string name="testertesting_rotationsssss">testertesting rotationsssss</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="new_team_message">Add Players</string>
+    <string name="create_team_button">Create Team</string>
+    <string name="hint_player_name">Name</string>
+    <string name="hint_team_name">Team Name</string>
+    <string name="_0">0</string>
+    <string name="i">I</string>
+    <string name="ii">II</string>
+    <string name="iii">III</string>
+    <string name="iv">IV</string>
+    <string name="v">V</string>
+    <string name="vi">VI</string>
+    <string name="header_player_number">Player Number</string>
+    <string name="header_player_name">Player Name</string>
+    <string name="header_position">Position</string>
+    <string name="position_server">Server</string>
+    <string name="position_opposite_hitter">Opposite Hitter</string>
+    <string name="position_outside_hitter">Outside Hitter</string>
+    <string name="position_libero">Libero</string>
+    <string name="position_right_side_hitter">Right Side Hitter</string>
+    <string name="setter">Setter</string>
+    <string name="mb1">MB1</string>
+    <string name="s">S</string>
+    <string name="oh1">OH1</string>
+    <string name="rs">RS</string>
+    <string name="oh2">OH2</string>
+    <string name="mb2">MB2</string>
+    <string name="rotation_1_base">Rotation 1 Base</string>
+    <string name="swipe_vertically_or_horizontally_to_start">Swipe Vertically or Horizontally to Start!</string>
+    <string name="test">TEST</string>
+    <string name="position">Position View</string>
+    <string name="name">Name View</string>
+    <string name="number">Number View</string>
+    <string name="enter_rotation_name_here">Enter Rotation Name Here</string>
+</resources>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/tutorial_scoring_points">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingVertical="64dp"
+        android:text="
+        A team scores a point when:\n\n\t
+        1. The ball lands in the opponents' court
+        \n\n\t
+        2. An opponent commits a fault
+        \n\n\t
+        3. An opponent receives a penalty
+        \n\n\n
+        Types of faults:
+        \n\n\t
+        - Out of bounds: Player contacts a ball to send it out of bounds
+        \n\n\t
+        - Foot fault: Foot crossing line during serve or back-row hit
+        \n\n\t
+        - Center line fault: Foot completely over line during front-row attack
+        \n\n\t
+        - Net fault: Player touches the net at any time
+        \n\n\t
+        - Rotational fault: Players begin a rally out of position
+        \n\n\t
+        - Interference: Player reaches over the net before the 3rd touch
+        \n\n\t
+        - Carrying: Player redirects ball without a clean contact
+        \n\n\t
+        - Lifting/holding: Ball comes to rest during player's contact
+        \n\n\t
+        - Double contact: Player contacts the ball twice consecutively
+        \n\n\t
+        - Four hits: Team fails to return the ball in three volleys
+        "
+        android:textAlignment="viewStart"
+        android:textColor="#000000"
+        android:textSize="12dp"
+        android:layout_marginBottom="?android:attr/actionBarSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

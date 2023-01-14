@@ -1,0 +1,597 @@
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+index 6d63472..7db80fd 100644
+--- a/.idea/misc.xml
++++ b/.idea/misc.xml
+@@ -7,7 +7,8 @@
+         <entry key="..\:/Users/kangk/OneDrive/Documents/codestuff/VolleyDaddy-main/app/src/main/res/layout/fragment_rotation.xml" value="0.213768115942029" />
+         <entry key="..\:/Users/kangk/OneDrive/Documents/codestuff/VolleyDaddy-main/app/src/main/res/layout/fragment_rotation_builder.xml" value="0.213768115942029" />
+         <entry key="..\:/Users/kangk/OneDrive/Documents/codestuff/VolleyDaddy-main/app/src/main/res/layout/fragment_rotation_list.xml" value="0.213768115942029" />
+-        <entry key="..\:/Users/kangk/OneDrive/Documents/codestuff/VolleyDaddy-main/app/src/main/res/layout/item_view.xml" value="0.5" />
++        <entry key="..\:/Users/kangk/OneDrive/Documents/codestuff/VolleyDaddy-main/app/src/main/res/layout/fragment_settings.xml" value="0.4466666666666667" />
++        <entry key="..\:/Users/kangk/OneDrive/Documents/codestuff/VolleyDaddy-main/app/src/main/res/layout/item_view.xml" value="0.3333333333333333" />
+         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+         <entry key="app/src/main/res/layout/activity_main.xml" value="0.14010416666666667" />
+diff --git a/app/src/main/java/com/mobiledev/volleydaddy/Fragments/RotationBuilderFragment.kt b/app/src/main/java/com/mobiledev/volleydaddy/RotationBuilderFragment.kt
+similarity index 97%
+rename from app/src/main/java/com/mobiledev/volleydaddy/Fragments/RotationBuilderFragment.kt
+rename to app/src/main/java/com/mobiledev/volleydaddy/RotationBuilderFragment.kt
+index ac16a2d..210157c 100644
+--- a/app/src/main/java/com/mobiledev/volleydaddy/Fragments/RotationBuilderFragment.kt
++++ b/app/src/main/java/com/mobiledev/volleydaddy/RotationBuilderFragment.kt
+@@ -1,4 +1,4 @@
+-package com.mobiledev.volleydaddy.Fragments
++package com.mobiledev.volleydaddy
+ 
+ import android.os.Bundle
+ import androidx.fragment.app.Fragment
+diff --git a/app/src/main/java/com/mobiledev/volleydaddy/Fragments/RotationFragment.kt b/app/src/main/java/com/mobiledev/volleydaddy/RotationFragment.kt
+similarity index 98%
+rename from app/src/main/java/com/mobiledev/volleydaddy/Fragments/RotationFragment.kt
+rename to app/src/main/java/com/mobiledev/volleydaddy/RotationFragment.kt
+index df03a9a..6fa04ce 100644
+--- a/app/src/main/java/com/mobiledev/volleydaddy/Fragments/RotationFragment.kt
++++ b/app/src/main/java/com/mobiledev/volleydaddy/RotationFragment.kt
+@@ -1,4 +1,4 @@
+-package com.mobiledev.volleydaddy.Fragments
++package com.mobiledev.volleydaddy
+ 
+ import android.os.Bundle
+ import androidx.fragment.app.Fragment
+diff --git a/app/src/main/java/com/mobiledev/volleydaddy/Fragments/RotationListFragment.kt b/app/src/main/java/com/mobiledev/volleydaddy/RotationListFragment.kt
+similarity index 80%
+rename from app/src/main/java/com/mobiledev/volleydaddy/Fragments/RotationListFragment.kt
+rename to app/src/main/java/com/mobiledev/volleydaddy/RotationListFragment.kt
+index 4fb7f32..ce77683 100644
+--- a/app/src/main/java/com/mobiledev/volleydaddy/Fragments/RotationListFragment.kt
++++ b/app/src/main/java/com/mobiledev/volleydaddy/RotationListFragment.kt
+@@ -1,8 +1,9 @@
+-package com.mobiledev.volleydaddy.Fragments
++package com.mobiledev.volleydaddy
+ 
+ import android.os.Bundle
+ import android.view.*
+ import androidx.fragment.app.Fragment
++import androidx.recyclerview.widget.LinearLayoutManager
+ import androidx.recyclerview.widget.RecyclerView
+ import com.mobiledev.volleydaddy.databinding.FragmentRotationListBinding
+ 
+@@ -22,10 +23,10 @@ class RotationListFragment : Fragment() {
+     private val binding get() = _binding!!
+     private lateinit var recyclerView: RecyclerView
+ 
+-    override fun onCreate(savedInstanceState: Bundle?) {
+-        super.onCreate(savedInstanceState)
+-        // TODO: create or set a menu
+-    }
++//    override fun onCreate(savedInstanceState: Bundle?) {
++//        super.onCreate(savedInstanceState)
++//        // TODO: create or set a menu
++//    }
+ 
+     override fun onCreateView(
+         inflater: LayoutInflater, container: ViewGroup?,
+@@ -38,7 +39,13 @@ class RotationListFragment : Fragment() {
+ 
+     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+         recyclerView = binding.recyclerView
+-        // TODO: Make list logic, by example from https://developer.android.com/codelabs/basic-android-kotlin-training-fragments-navigation-component#4
++        recyclerView.apply {
++            // set a LinearLayoutManager to handle Android
++            // RecyclerView behavior
++            layoutManager = LinearLayoutManager(activity)
++            // set the custom adapter to the RecyclerView
++            adapter = RotationAdapter("test", requireContext())
++        }
+     }
+ 
+     override fun onDestroyView() {
+diff --git a/app/src/main/java/com/mobiledev/volleydaddy/Fragments/SettingsFragment.kt b/app/src/main/java/com/mobiledev/volleydaddy/SettingsFragment.kt
+similarity index 97%
+rename from app/src/main/java/com/mobiledev/volleydaddy/Fragments/SettingsFragment.kt
+rename to app/src/main/java/com/mobiledev/volleydaddy/SettingsFragment.kt
+index 4857a43..29105a4 100644
+--- a/app/src/main/java/com/mobiledev/volleydaddy/Fragments/SettingsFragment.kt
++++ b/app/src/main/java/com/mobiledev/volleydaddy/SettingsFragment.kt
+@@ -1,4 +1,4 @@
+-package com.mobiledev.volleydaddy.Fragments
++package com.mobiledev.volleydaddy
+ 
+ import android.os.Bundle
+ import androidx.fragment.app.Fragment
+diff --git a/app/src/main/res/layout/item_view.xml b/app/src/main/res/layout/item_view.xml
+index 757208f..65eb7f1 100644
+--- a/app/src/main/res/layout/item_view.xml
++++ b/app/src/main/res/layout/item_view.xml
+@@ -42,13 +42,15 @@
+ 
+         <TextView
+             android:id="@+id/rotation_text"
+-            android:layout_width="45dp"
++            android:layout_width="match_parent"
+             android:layout_height="18dp"
+             android:layout_marginTop="10dp"
+             android:layout_marginBottom="10dp"
+-            android:text="hobbie"
++            android:gravity="center"
++            android:text="test"
+             android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+             app:layout_constraintBottom_toBottomOf="parent"
++            app:layout_constraintHorizontal_bias="1.0"
+             app:layout_constraintLeft_toLeftOf="parent"
+             app:layout_constraintRight_toRightOf="parent"
+             app:layout_constraintTop_toBottomOf="@id/rotation_image" />
+diff --git a/mypatch.patch b/mypatch.patch
+deleted file mode 100644
+index c765631..0000000
+--- a/mypatch.patch
++++ /dev/null
+@@ -1,468 +0,0 @@
+-diff --git a/.idea/misc.xml b/.idea/misc.xml
+-index 93f25e3..6d63472 100644
+---- a/.idea/misc.xml
+-+++ b/.idea/misc.xml
+-@@ -3,6 +3,11 @@
+-   <component name="DesignSurface">
+-     <option name="filePathToZoomLevelMap">
+-       <map>
+-+        <entry key="..\:/Users/kangk/OneDrive/Documents/codestuff/VolleyDaddy-main/app/src/main/res/layout/activity_main.xml" value="0.213768115942029" />
+-+        <entry key="..\:/Users/kangk/OneDrive/Documents/codestuff/VolleyDaddy-main/app/src/main/res/layout/fragment_rotation.xml" value="0.213768115942029" />
+-+        <entry key="..\:/Users/kangk/OneDrive/Documents/codestuff/VolleyDaddy-main/app/src/main/res/layout/fragment_rotation_builder.xml" value="0.213768115942029" />
+-+        <entry key="..\:/Users/kangk/OneDrive/Documents/codestuff/VolleyDaddy-main/app/src/main/res/layout/fragment_rotation_list.xml" value="0.213768115942029" />
+-+        <entry key="..\:/Users/kangk/OneDrive/Documents/codestuff/VolleyDaddy-main/app/src/main/res/layout/item_view.xml" value="0.5" />
+-         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+-         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+-         <entry key="app/src/main/res/layout/activity_main.xml" value="0.14010416666666667" />
+-diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+-index 94a25f7..288b36b 100644
+---- a/.idea/vcs.xml
+-+++ b/.idea/vcs.xml
+-@@ -1,6 +1,7 @@
+- <?xml version="1.0" encoding="UTF-8"?>
+- <project version="4">
+-   <component name="VcsDirectoryMappings">
+-+    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+-     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+-   </component>
+- </project>
+-\ No newline at end of file
+-diff --git a/app/src/main/java/com/mobiledev/volleydaddy/RotationBuilderFragment.kt b/app/src/main/java/com/mobiledev/volleydaddy/Fragments/RotationBuilderFragment.kt
+-similarity index 95%
+-rename from app/src/main/java/com/mobiledev/volleydaddy/RotationBuilderFragment.kt
+-rename to app/src/main/java/com/mobiledev/volleydaddy/Fragments/RotationBuilderFragment.kt
+-index f969b44..ac16a2d 100644
+---- a/app/src/main/java/com/mobiledev/volleydaddy/RotationBuilderFragment.kt
+-+++ b/app/src/main/java/com/mobiledev/volleydaddy/Fragments/RotationBuilderFragment.kt
+-@@ -1,10 +1,11 @@
+--package com.mobiledev.volleydaddy
+-+package com.mobiledev.volleydaddy.Fragments
+- 
+- import android.os.Bundle
+- import androidx.fragment.app.Fragment
+- import android.view.LayoutInflater
+- import android.view.View
+- import android.view.ViewGroup
+-+import com.mobiledev.volleydaddy.R
+- 
+- // TODO: Rename parameter arguments, choose names that match
+- // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+-diff --git a/app/src/main/java/com/mobiledev/volleydaddy/RotationFragment.kt b/app/src/main/java/com/mobiledev/volleydaddy/Fragments/RotationFragment.kt
+-similarity index 94%
+-rename from app/src/main/java/com/mobiledev/volleydaddy/RotationFragment.kt
+-rename to app/src/main/java/com/mobiledev/volleydaddy/Fragments/RotationFragment.kt
+-index 0a6b5fb..df03a9a 100644
+---- a/app/src/main/java/com/mobiledev/volleydaddy/RotationFragment.kt
+-+++ b/app/src/main/java/com/mobiledev/volleydaddy/Fragments/RotationFragment.kt
+-@@ -1,4 +1,4 @@
+--package com.mobiledev.volleydaddy
+-+package com.mobiledev.volleydaddy.Fragments
+- 
+- import android.os.Bundle
+- import androidx.fragment.app.Fragment
+-@@ -6,6 +6,8 @@ import android.view.LayoutInflater
+- import android.view.View
+- import android.view.ViewGroup
+- import androidx.recyclerview.widget.RecyclerView
+-+import com.mobiledev.volleydaddy.R
+-+import com.mobiledev.volleydaddy.RotationAdapter
+- import com.mobiledev.volleydaddy.databinding.FragmentRotationBinding
+- import com.mobiledev.volleydaddy.databinding.FragmentRotationListBinding
+- 
+-diff --git a/app/src/main/java/com/mobiledev/volleydaddy/RotationListFragment.kt b/app/src/main/java/com/mobiledev/volleydaddy/Fragments/RotationListFragment.kt
+-similarity index 98%
+-rename from app/src/main/java/com/mobiledev/volleydaddy/RotationListFragment.kt
+-rename to app/src/main/java/com/mobiledev/volleydaddy/Fragments/RotationListFragment.kt
+-index fcb4498..4fb7f32 100644
+---- a/app/src/main/java/com/mobiledev/volleydaddy/RotationListFragment.kt
+-+++ b/app/src/main/java/com/mobiledev/volleydaddy/Fragments/RotationListFragment.kt
+-@@ -1,4 +1,4 @@
+--package com.mobiledev.volleydaddy
+-+package com.mobiledev.volleydaddy.Fragments
+- 
+- import android.os.Bundle
+- import android.view.*
+-diff --git a/app/src/main/java/com/mobiledev/volleydaddy/SettingsFragment.kt b/app/src/main/java/com/mobiledev/volleydaddy/Fragments/SettingsFragment.kt
+-similarity index 95%
+-rename from app/src/main/java/com/mobiledev/volleydaddy/SettingsFragment.kt
+-rename to app/src/main/java/com/mobiledev/volleydaddy/Fragments/SettingsFragment.kt
+-index 96b0b75..4857a43 100644
+---- a/app/src/main/java/com/mobiledev/volleydaddy/SettingsFragment.kt
+-+++ b/app/src/main/java/com/mobiledev/volleydaddy/Fragments/SettingsFragment.kt
+-@@ -1,10 +1,11 @@
+--package com.mobiledev.volleydaddy
+-+package com.mobiledev.volleydaddy.Fragments
+- 
+- import android.os.Bundle
+- import androidx.fragment.app.Fragment
+- import android.view.LayoutInflater
+- import android.view.View
+- import android.view.ViewGroup
+-+import com.mobiledev.volleydaddy.R
+- 
+- // TODO: Rename parameter arguments, choose names that match
+- // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+-diff --git a/app/src/main/java/com/mobiledev/volleydaddy/MainActivity.kt b/app/src/main/java/com/mobiledev/volleydaddy/MainActivity.kt
+-index b750737..9a22e15 100644
+---- a/app/src/main/java/com/mobiledev/volleydaddy/MainActivity.kt
+-+++ b/app/src/main/java/com/mobiledev/volleydaddy/MainActivity.kt
+-@@ -18,6 +18,19 @@ class MainActivity : AppCompatActivity() {
+- 
+-         val binding = ActivityMainBinding.inflate(layoutInflater)
+-         setContentView(binding.root)
+-+
+-+
+-+        // will be relocated to a separate method later, but here for now for testing
+-+//        binding.verticalRecyclerView.adapter = DogCardAdapter(
+-+//            applicationContext,
+-+//            "test"
+-+//        )
+-+//        binding.verticalRecyclerView.setHasFixedSize(true)
+-+
+-+
+-+
+-+        // Enable up button for backward navigation
+-+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+-         /*
+-         val navHostFragment = supportFragmentManager
+-             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+-diff --git a/app/src/main/java/com/mobiledev/volleydaddy/RotationAdapter.kt b/app/src/main/java/com/mobiledev/volleydaddy/RotationAdapter.kt
+-index c114a2c..dfc3bf6 100644
+---- a/app/src/main/java/com/mobiledev/volleydaddy/RotationAdapter.kt
+-+++ b/app/src/main/java/com/mobiledev/volleydaddy/RotationAdapter.kt
+-@@ -19,95 +19,64 @@ import android.content.Context
+- import android.content.Intent
+- import android.net.Uri
+- import android.os.Build
+-+import android.util.Log.i
+- import android.view.LayoutInflater
+- import android.view.View
+- import android.view.ViewGroup
+- import android.view.accessibility.AccessibilityNodeInfo
+- import android.widget.Button
+-+import android.widget.ImageView
+-+import android.widget.TextView
+-+import android.widget.Toast
+- import androidx.annotation.RequiresApi
+- import androidx.recyclerview.widget.RecyclerView
+- import com.mobiledev.volleydaddy.R
+-+import com.mobiledev.volleydaddy.data.DataSource
+-+import com.mobiledev.volleydaddy.model.RotationCard
+- 
+- /**
+-  * Adapter for the [RecyclerView] in [DetailActivity].
+-  */
+--class RotationAdapter(private val rotationId: String, context: Context) :
+--    RecyclerView.Adapter<RotationAdapter.WordViewHolder>() {
+-+class RotationAdapter(private val rotationId: String, context: Context?) :
+-+    RecyclerView.Adapter<RotationAdapter.RotationViewHolder>() {
+- 
+--
+--    init {
+--        // find the rotation to display
+--        /*
+--        val words = context.resources.getStringArray(R.array.words).toList()
+--
+--        filteredWords = words
+--            // Returns items in a collection if the conditional clause is true,
+--            // in this case if an item starts with the given letter,
+--            // ignoring UPPERCASE or lowercase.
+--            .filter { it.startsWith(rotationId, ignoreCase = true) }
+--            // Returns a collection that it has shuffled in place
+--            .shuffled()
+--            // Returns the first n items as a [List]
+--            .take(5)
+--            // Returns a sorted version of that [List]
+--            .sorted()
+--
+--         */
+-+    class RotationViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+-+        val rotation_image = view.findViewById<ImageView>(R.id.rotation_image)
+-+        val rotation_text = view.findViewById<TextView>(R.id.rotation_text)
+-     }
+- 
+--    class WordViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+--        val button = view.findViewById<Button>(R.id.button_item)
+--    }
+-+    private val rotations: List<RotationCard> = DataSource.rotations
+- 
+--    override fun getItemCount(): Int = 0
+-+    override fun getItemCount(): Int = rotations.size
+- 
+-     /**
+-      * Creates new views with R.layout.item_view as its template
+-      */
+--    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
+-+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RotationViewHolder {
+-         val layout = LayoutInflater
+-             .from(parent.context)
+-             .inflate(R.layout.item_view, parent, false)
+- 
+-         // Setup custom accessibility delegate to set the text read
+--        layout.accessibilityDelegate = Accessibility
+-+        layout.accessibilityDelegate = RotationListAdapter
+- 
+--        return WordViewHolder(layout)
+-+        return RotationViewHolder(layout)
+-     }
+- 
+-     /**
+-      * Replaces the content of an existing view with new data
+-      */
+--    override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
+-+    override fun onBindViewHolder(holder: RotationViewHolder, position: Int) {
+-+        val rotation = rotations[position]
+- 
+--    }
+-+        holder.rotation_image.setImageResource(rotation.imageResourceId)
+-+        holder.rotation_text.text = rotation.name
+- 
+--    // Setup custom accessibility delegate to set the text read with
+--    // an accessibility service
+--    companion object Accessibility : View.AccessibilityDelegate() {
+--        @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+--        override fun onInitializeAccessibilityNodeInfo(
+--            host: View,
+--            info: AccessibilityNodeInfo
+--        ) {
+--            super.onInitializeAccessibilityNodeInfo(host, info)
+--            // With `null` as the second argument to [AccessibilityAction], the
+--            // accessibility service announces "double tap to activate".
+--            // If a custom string is provided,
+--            // it announces "double tap to <custom string>".
+-+        holder.view.setOnClickListener {
+-+            //"You clicked on \"${rotation.name}\"!"
+- 
+--
+--            /*
+--
+--            val customString = host.context?.getString(R.string.look_up_word)
+--            val customClick =
+--                AccessibilityNodeInfo.AccessibilityAction(
+--                    AccessibilityNodeInfo.ACTION_CLICK,
+--                    customString
+--                )
+--            info.addAction(customClick)
+--
+--             */
+-+//            Toast.makeText(this@RotationAdapter, "You clicked on \"${rotation.name}\"!", Toast.LENGTH_SHORT).show()
+-         }
+-+
+-     }
+- }
+-\ No newline at end of file
+-diff --git a/app/src/main/java/com/mobiledev/volleydaddy/RotationListAdapter.kt b/app/src/main/java/com/mobiledev/volleydaddy/RotationListAdapter.kt
+-index d2fe365..4c9a6d4 100644
+---- a/app/src/main/java/com/mobiledev/volleydaddy/RotationListAdapter.kt
+-+++ b/app/src/main/java/com/mobiledev/volleydaddy/RotationListAdapter.kt
+-@@ -40,7 +40,7 @@ class RotationListAdapter :
+-      * Provides a reference for the views needed to display items in your list.
+-      */
+-     class RotationListViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+--        val button = view.findViewById<Button>(R.id.button_item)
+-+//        val button = view.findViewById<Button>(R.id.button_item)
+-     }
+- 
+-     override fun getItemCount(): Int {
+-@@ -64,14 +64,14 @@ class RotationListAdapter :
+-      * Replaces the content of an existing view with new data
+-      */
+-     override fun onBindViewHolder(holder: RotationListViewHolder, position: Int) {
+--        val item = list.get(position)
+--        holder.button.text = item.toString()
+--
+--        // Assigns a [OnClickListener] to the button contained in the [ViewHolder]
+--        holder.button.setOnClickListener {
+--            val action = RotationListFragmentDirections.actionRotationListFragmentToRotationFragment(rotationType = holder.button.text.toString())
+--            holder.view.findNavController().navigate(action)
+--        }
+-+//        val item = list.get(position)
+-+//        holder.button.text = item.toString()
+-+//
+-+//        // Assigns a [OnClickListener] to the button contained in the [ViewHolder]
+-+//        holder.button.setOnClickListener {
+-+//            val action = RotationListFragmentDirections.actionRotationListFragmentToRotationFragment(rotationType = holder.button.text.toString())
+-+//            holder.view.findNavController().navigate(action)
+-+//        }
+-     }
+- 
+-     // Setup custom accessibility delegate to set the text read with
+-diff --git a/app/src/main/java/com/mobiledev/volleydaddy/data/DataSource.kt b/app/src/main/java/com/mobiledev/volleydaddy/data/DataSource.kt
+-new file mode 100644
+-index 0000000..7a4db3c
+---- /dev/null
+-+++ b/app/src/main/java/com/mobiledev/volleydaddy/data/DataSource.kt
+-@@ -0,0 +1,23 @@
+-+package com.mobiledev.volleydaddy.data
+-+
+-+import com.mobiledev.volleydaddy.R
+-+import com.mobiledev.volleydaddy.model.RotationCard
+-+
+-+object DataSource {
+-+
+-+    val rotations: List<RotationCard> = mutableListOf(
+-+        RotationCard(
+-+            R.drawable.rotations_explained,
+-+            "What are rotations?"
+-+        ),
+-+        RotationCard(
+-+            R.drawable.rotation_51,
+-+            "5-1 Rotation!"
+-+        ),
+-+        RotationCard(
+-+            R.drawable.rotation_62,
+-+            "6-2 Rotation!"
+-+        )
+-+
+-+    )
+-+}
+-\ No newline at end of file
+-diff --git a/app/src/main/java/com/mobiledev/volleydaddy/model/RotationCard.kt b/app/src/main/java/com/mobiledev/volleydaddy/model/RotationCard.kt
+-new file mode 100644
+-index 0000000..5bf1c47
+---- /dev/null
+-+++ b/app/src/main/java/com/mobiledev/volleydaddy/model/RotationCard.kt
+-@@ -0,0 +1,8 @@
+-+package com.mobiledev.volleydaddy.model
+-+
+-+import androidx.annotation.DrawableRes
+-+
+-+data class RotationCard (
+-+    @DrawableRes val imageResourceId: Int,
+-+    val name: String
+-+    )
+-\ No newline at end of file
+-diff --git a/app/src/main/java/com/mobiledev/volleydaddy/model/RotationData.kt b/app/src/main/java/com/mobiledev/volleydaddy/model/RotationData.kt
+-new file mode 100644
+-index 0000000..85351ec
+---- /dev/null
+-+++ b/app/src/main/java/com/mobiledev/volleydaddy/model/RotationData.kt
+-@@ -0,0 +1,4 @@
+-+package com.mobiledev.volleydaddy.model
+-+
+-+class RotationData {
+-+}
+-\ No newline at end of file
+-diff --git a/app/src/main/res/layout/item_view.xml b/app/src/main/res/layout/item_view.xml
+-index c9a3358..757208f 100644
+---- a/app/src/main/res/layout/item_view.xml
+-+++ b/app/src/main/res/layout/item_view.xml
+-@@ -1,23 +1,59 @@
+- <?xml version="1.0" encoding="utf-8"?>
+- <!--
+--     Copyright (C) 2020 The Android Open Source Project
+-+  ~ Copyright (C) 2021 The Android Open Source Project.
+-+  ~
+-+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+-+  ~ you may not use this file except in compliance with the License.
+-+  ~ You may obtain a copy of the License at
+-+  ~
+-+  ~     http://www.apache.org/licenses/LICENSE-2.0
+-+  ~
+-+  ~ Unless required by applicable law or agreed to in writing, software
+-+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+-+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-+  ~ See the License for the specific language governing permissions and
+-+  ~ limitations under the License.
+-+  -->
+-+<com.google.android.material.card.MaterialCardView
+-+    xmlns:app="http://schemas.android.com/apk/res-auto"
+-+    xmlns:android="http://schemas.android.com/apk/res/android"
+-+    xmlns:tools="http://schemas.android.com/tools"
+-+    android:layout_width="match_parent"
+-+    android:layout_height="wrap_content"
+-+    android:layout_margin="8dp"
+-+    app:cardElevation="4dp"
+-+    app:cardCornerRadius="4dp">
+- 
+--     Licensed under the Apache License, Version 2.0 (the "License");
+--     you may not use this file except in compliance with the License.
+--     You may obtain a copy of the License at
+-+    <androidx.constraintlayout.widget.ConstraintLayout
+-+        android:layout_width="match_parent"
+-+        android:layout_height="wrap_content">
+- 
+--          http://www.apache.org/licenses/LICENSE-2.0
+-+        <ImageView
+-+            android:id="@+id/rotation_image"
+-+            android:layout_width="292dp"
+-+            android:layout_height="97dp"
+-+            android:scaleType="centerCrop"
+-+            android:src="@drawable/rotation_51"
+-+            app:layout_constraintBottom_toTopOf="@+id/rotation_text"
+-+            app:layout_constraintHorizontal_bias="0.495"
+-+            app:layout_constraintLeft_toLeftOf="parent"
+-+            app:layout_constraintRight_toRightOf="parent"
+-+            app:layout_constraintTop_toTopOf="parent" />
+-+
+-+        <TextView
+-+            android:id="@+id/rotation_text"
+-+            android:layout_width="45dp"
+-+            android:layout_height="18dp"
+-+            android:layout_marginTop="10dp"
+-+            android:layout_marginBottom="10dp"
+-+            android:text="hobbie"
+-+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+-+            app:layout_constraintBottom_toBottomOf="parent"
+-+            app:layout_constraintLeft_toLeftOf="parent"
+-+            app:layout_constraintRight_toRightOf="parent"
+-+            app:layout_constraintTop_toBottomOf="@id/rotation_image" />
+-+
+-+    </androidx.constraintlayout.widget.ConstraintLayout>
+-+
+-+</com.google.android.material.card.MaterialCardView>
+- 
+--     Unless required by applicable law or agreed to in writing, software
+--     distributed under the License is distributed on an "AS IS" BASIS,
+--     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+--     See the License for the specific language governing permissions and
+--     limitations under the License.
+---->
+--<!--  TODO: Overwrite this style -->
+--<Button xmlns:android="http://schemas.android.com/apk/res/android"
+--    android:id="@+id/button_item"
+--    android:layout_width="match_parent"
+--    android:layout_height="wrap_content"
+--    android:layout_margin="4dp"
+--    android:padding="8dp" />
+-diff --git a/app/src/main/res/menu/bottom_menu.xml b/app/src/main/res/menu/bottom_menu.xml
+-index ccb77ca..4e98f22 100644
+---- a/app/src/main/res/menu/bottom_menu.xml
+-+++ b/app/src/main/res/menu/bottom_menu.xml
+-@@ -5,15 +5,15 @@
+-     <item
+-         android:id="@+id/rotationListFragment"
+-         android:icon="@drawable/rotation_icon_2"
+--        android:title="@string/rotations_tab_name" />
+-+        android:title="Rotations" />
+-     <item
+-         android:id="@+id/rotationBuilderFragment"
+-         android:icon="@drawable/builder_icon_1"
+--        android:title="@string/builder_tab_name" />
+-+        android:title="Builder" />
+-     <item
+-         android:id="@+id/settingsFragment"
+-         android:icon="@drawable/team_icon_1"
+--        android:title="@string/team_tab_name" />
+-+        android:title="Team" />
+- 
+- 
+- </menu>
+-\ No newline at end of file
+-diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+-index 654baa5..4ec2aed 100644
+---- a/app/src/main/res/values/strings.xml
+-+++ b/app/src/main/res/values/strings.xml
+-@@ -3,8 +3,4 @@
+-     <!-- TODO: Remove or change this placeholder text -->
+-     <string name="hello_blank_fragment">Hello blank fragment</string>
+-     <string name="placeholder">Random Temporary Text</string>
+--    <string name="builder">Builder</string>
+--    <string name="rotations_tab_name">Rotations</string>
+--    <string name="team_tab_name">Team</string>
+--    <string name="builder_tab_name">Builder</string>
+- </resources>
+-\ No newline at end of file
+-diff --git a/gradlew b/gradlew
+-old mode 100755
+-new mode 100644

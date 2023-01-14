@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/rotationListFragment"
+        android:icon="@drawable/rotation_icon_2"
+        android:title="@string/rotations_tab_name" />
+    <item
+        android:id="@+id/rotationBuilderFragment"
+        android:icon="@drawable/ic_builder_2"
+        android:title="@string/builder_tab_name" />
+    <item
+        android:id="@+id/settingsActivity"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/settings_tab_name" />
+
+
+</menu>

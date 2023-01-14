@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="mode_entries">
+        <item> Light Mode</item>
+        <item> Dark Mode</item>
+    </string-array>
+
+    <string-array name="mode_values">
+        <item> light_mode</item>
+        <item> dark_mode</item>
+    </string-array>
+
+    <string-array name="team_entries">
+        <item> Team 1</item>
+        <item> Team 2</item>
+    </string-array>
+
+    <string-array name="team_values">
+        <item> team_1</item>
+        <item> team_2</item>
+    </string-array>
+</resources>

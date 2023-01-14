@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/fragment_51_scene"
+    android:id="@+id/motionLayout">
+
+    <ImageView
+        android:id="@+id/court"
+        android:layout_width="315dp"
+        android:layout_height="315dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.583"
+        app:srcCompat="@drawable/court" />
+
+    <View
+        android:id="@+id/attack_line"
+        android:layout_width="315dp"
+        android:layout_height="5dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/court"
+        app:layout_constraintEnd_toEndOf="@+id/court"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/court"
+        app:layout_constraintTop_toTopOf="@+id/court"
+        app:layout_constraintVertical_bias="0.38" />
+
+    <TextView
+        android:id="@+id/I"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/circle"
+        android:gravity="center"
+        android:text="@string/s"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="@+id/court"
+        app:layout_constraintEnd_toEndOf="@+id/court"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/court"
+        app:layout_constraintTop_toTopOf="@+id/court"
+        app:layout_constraintVertical_bias="0.698" />
+
+    <TextView
+        android:id="@+id/II"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/circle"
+        android:gravity="center"
+        android:text="@string/oh1"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="@+id/court"
+        app:layout_constraintEnd_toEndOf="@+id/court"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/court"
+        app:layout_constraintTop_toTopOf="@+id/court"
+        app:layout_constraintVertical_bias="0.835" />
+
+    <TextView
+        android:id="@+id/III"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/circle"
+        android:gravity="center"
+        android:text="@string/mb2"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="@+id/court"
+        app:layout_constraintEnd_toEndOf="@+id/court"
+        app:layout_constraintHorizontal_bias="0.156"
+        app:layout_constraintStart_toStartOf="@+id/court"
+        app:layout_constraintTop_toTopOf="@+id/court"
+        app:layout_constraintVertical_bias="0.627" />
+
+    <TextView
+        android:id="@+id/IV"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/circle"
+        android:gravity="center"
+        android:text="@string/rs"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="@+id/court"
+        app:layout_constraintEnd_toEndOf="@+id/court"
+        app:layout_constraintHorizontal_bias="0.345"
+        app:layout_constraintStart_toStartOf="@+id/court"
+        app:layout_constraintTop_toTopOf="@+id/court"
+        app:layout_constraintVertical_bias="0.156" />
+
+    <TextView
+        android:id="@+id/V"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/circle"
+        android:gravity="center"
+        android:text="@string/oh2"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="@+id/court"
+        app:layout_constraintEnd_toEndOf="@+id/court"
+        app:layout_constraintHorizontal_bias="0.815"
+        app:layout_constraintStart_toStartOf="@+id/court"
+        app:layout_constraintTop_toTopOf="@+id/court"
+        app:layout_constraintVertical_bias="0.67" />
+
+    <TextView
+        android:id="@+id/VI"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/circle"
+        android:gravity="center"
+        android:text="@string/mb1"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="@+id/court"
+        app:layout_constraintEnd_toEndOf="@+id/court"
+        app:layout_constraintHorizontal_bias="0.917"
+        app:layout_constraintStart_toStartOf="@+id/court"
+        app:layout_constraintTop_toTopOf="@+id/court"
+        app:layout_constraintVertical_bias="0.658" />
+
+    <TextView
+        android:id="@+id/currentRotation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/swipe_vertically_or_horizontally_to_start"
+        app:layout_constraintBottom_toTopOf="@+id/court"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.motion.widget.MotionLayout>

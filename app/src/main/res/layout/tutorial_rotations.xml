@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/tutorial_positions">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="12dp"
+        android:text="\tBecause volleyball is a rally sport, each play begins with a serve. To serve, a player must release the ball into the air and send it over the net by contacting it. The player must not be standing in-bounds when the ball is struck.
+            \n\n\tAt the start of a game, it is determined which team will serve first using a coin toss. That team continues to serve until they lose a point/rally; at which point, control of the serve is transferred to the opposing team.
+            \n\n\tOne of the most unique aspects of volleyball is the rotation system. There are six physical positions a player may occupy: front left (4), front middle (3), front right (2), back left (5), back middle (6), and back right (1).
+            \n\n\tEach time a team wins control of the serve, the players 'rotate' clockwise. This means that the player in position 2 (front right) rotates back to position 1 (back right), which is the serving position.
+            \n\n\tThis system allows each player to rotate through the serving position. However, this system limits where each player can begin a rally. Moreover, it means each team is limited to three players who can attack from the front row at any given time.
+            \n\n\tThus, the rotation system places significant constraints on each player's starting location for a given rally. As a result, high-level teams must plan their formations carefully in order to make the best use of specialized players.
+            "
+        android:textAlignment="viewStart"
+        android:textColor="#000000"
+        android:textSize="14dp"
+        android:layout_marginBottom="?android:attr/actionBarSize"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+    </TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

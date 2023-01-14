@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/rotationListFragment">
+
+    <fragment
+        android:id="@+id/rotationListFragment"
+        android:name="com.mobiledev.volleydaddy.RotationListFragment"
+        android:label="fragment_rotation_list"
+        tools:layout="@layout/fragment_rotation_list" >
+        <action
+            android:id="@+id/action_rotationListFragment_to_rotationsFragment"
+            app:destination="@id/rotationsFragment" />
+        <action
+            android:id="@+id/action_rotationListFragment_to_tutorialListFragment"
+            app:destination="@id/tutorialListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rotationBuilderFragment"
+        android:name="com.mobiledev.volleydaddy.RotationBuilderFragment"
+        android:label="fragment_rotation_builder"
+        tools:layout="@layout/fragment_rotation_builder" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.mobiledev.volleydaddy.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <activity
+        android:id="@+id/settingsActivity"
+        android:name="com.mobiledev.volleydaddy.SettingsActivity"
+        android:label="activity_settings"
+        tools:layout="@layout/activity_settings"
+        />
+    <fragment
+        android:id="@+id/rotationsFragment"
+        android:name="com.mobiledev.volleydaddy.RotationFragment"
+        android:label="fragment_rotations"
+        tools:layout="@layout/fragment_rotation">
+        <argument
+            android:name="rotation"
+            app:argType="string"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/tutorialFragment"
+        android:name="com.mobiledev.volleydaddy.TutorialFragment"
+        android:label="fragment_tutorial"
+        tools:layout="@layout/fragment_tutorial">
+        <argument
+            android:name="tutorial"
+            app:argType="string"/>
+    </fragment>
+    <fragment
+        android:id="@+id/newTeamFragment"
+        android:name="com.mobiledev.volleydaddy.NewTeamFragment"
+        android:label="NewTeamFragment" >
+        <action
+            android:id="@+id/action_newTeamFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tutorialListFragment"
+        android:name="com.mobiledev.volleydaddy.TutorialListFragment"
+        android:label="fragment_tutorial_list"
+        tools:layout="@layout/fragment_tutorial_list" >
+        <action
+            android:id="@+id/action_tutorialListFragment_to_tutorialFragment"
+            app:destination="@id/tutorialFragment" />
+    </fragment>
+</navigation>

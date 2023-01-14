@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/linear_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <EditText
+            android:id="@+id/enterTeamName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:inputType="text"
+            android:hint="@string/hint_team_name"/>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/new_team_message"
+            android:layout_margin="10dp"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <GridLayout
+            android:id="@+id/grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="6"
+            tools:context=".NewTeamFragment">
+
+            <TextView
+                android:id="@+id/heading_pos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/header_position" />
+
+            <TextView
+                android:id="@+id/heading_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/header_player_name"/>
+
+            <TextView
+                android:id="@+id/heading_num"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/header_player_number" />
+
+    <!-- Row 1: Server-->
+            <TextView
+                android:id="@+id/textViewS"
+                android:text="@string/position_server"
+                style="@style/TeamCreateListPos"/>
+
+            <EditText
+                android:id="@+id/enterNameS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:inputType="text"
+                android:hint="@string/hint_player_name"/>
+
+            <EditText
+                android:id="@+id/enterNumberS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:inputType="number"
+                android:hint="@string/_0"/>
+
+            <!-- Row 2: RIGHT SIDE/ Opposite HITTER-->
+            <TextView
+                android:id="@+id/textViewOppH"
+                android:text="@string/position_opposite_hitter"
+                style="@style/TeamCreateListPos"/>
+
+            <EditText
+                android:id="@+id/enterNameOppH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:inputType="text"
+                android:hint="@string/hint_player_name"/>
+
+            <EditText
+                android:id="@+id/enterNumberOppH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:inputType="number"
+                android:hint="@string/_0"/>
+
+            <!-- Row 3: Left SIDE/ Outsite HITTER-->
+            <TextView
+                android:id="@+id/textViewOutH"
+                android:text="@string/position_outside_hitter"
+                style="@style/TeamCreateListPos"/>
+
+            <EditText
+                android:id="@+id/enterNameOutH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:inputType="text"
+                android:hint="@string/hint_player_name"/>
+
+            <EditText
+                android:id="@+id/enterNumberOutH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:inputType="number"
+                android:hint="@string/_0"/>
+
+            <!-- Row 4: Middle Blocker-->
+            <TextView
+                android:id="@+id/textViewMB"
+                android:text="Middle Blocker"
+                style="@style/TeamCreateListPos"/>
+
+            <EditText
+                android:id="@+id/enterNameMB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:inputType="text"
+                android:hint="@string/hint_player_name"/>
+
+            <EditText
+                android:id="@+id/enterNumberMB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:inputType="number"
+                android:hint="@string/_0"/>
+
+            <!-- Row 5: Libero-->
+            <TextView
+                android:id="@+id/textViewL"
+                android:text="@string/position_libero"
+                style="@style/TeamCreateListPos"/>
+
+            <EditText
+                android:id="@+id/enterNameL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:inputType="text"
+                android:hint="@string/hint_player_name"/>
+
+            <EditText
+                android:id="@+id/enterNumberL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:inputType="number"
+                android:hint="@string/_0"/>
+
+            <!-- Row 6: Defensive Specialist-->
+            <TextView
+                android:id="@+id/textViewRSH"
+                android:text="@string/position_right_side_hitter"
+                style="@style/TeamCreateListPos"/>
+
+            <EditText
+                android:id="@+id/enterNameRSH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:inputType="text"
+                android:hint="@string/hint_player_name"/>
+
+            <EditText
+                android:id="@+id/enterNumberRSH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:inputType="number"
+                android:hint="@string/_0"/>
+
+        </GridLayout>
+        <Button
+            android:id="@+id/create_team_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_team_button"
+            android:layout_margin="13dp"
+            android:onClick="createTeam" />
+    </LinearLayout>
+</ScrollView>

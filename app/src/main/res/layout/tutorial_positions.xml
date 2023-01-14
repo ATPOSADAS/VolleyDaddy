@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/tutorial_positions">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="?android:attr/actionBarSize"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="12dp"
+                android:text="\tThe rules of rotation in volleyball present a challenge: each player’s starting position may be limited depending on the current rotation, but players are highly specialized in their roles. Therefore, high-level teams often spend considerable time planning specific formations for each rotation so that the players can run their best offense.
+                    \n\n\tThe outside hitter (OH) is the most reliable offensive player. OHs spike from the left side when in the front row, and are expected to be able to create aggressive attacks even when the play is challenging. Additionally, they usually take on responsibility as both a passer and outside blocker.
+                    \n\n\tThe middle hitter (M) is both a blocker and attacker. Middles are expected to block as many attacks as possible, and are additionally responsible for running the quick attack.
+                    \n\n\tThe opposite hitter (O) is a dynamic position that may be occupied by a player specializing in offense or defense. Opposites may be expected to: assist the setter when he cannot play the second touch, block the opposing team's left-side hitter, or defend a larger area of the court than other back-row players.
+                    \n\n\tThe setter (S) runs the team offense, and is responsible for the second touch whenever it is possible. This player may also expected to block and defend in specific rotations.
+                    \n\n\tThe libero (L) is a player who specializes in defense, and only plays in the back row. After a middle hitter rotates out of the serving position, they are allowed to substitute for a libero for their two remaining rotations in the back row.\nNote: Liberos have extra restrictions related to setting and attacking.
+                    "
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                ></TextView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</ScrollView>
